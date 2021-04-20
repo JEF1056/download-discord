@@ -57,7 +57,7 @@ atexit.register(write_out)
 def call_proc(channel):
     if type(channel) == list:
         gen_dir(channel[1])
-        cmd = arguments.replace(os.path.join(args.out, "data"), os.path.join(args.out, channel[1]))+channel[0]
+        cmd = arguments.replace(os.path.join(args.out, "data"), os.path.join(args.out, channel[1]))+str(channel[0])
         channel = channel[0]
     else:
         cmd=arguments+str(channel)
