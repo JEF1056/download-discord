@@ -58,7 +58,7 @@ gen_dir(os.path.join(args.out, "data"))
 
 def call_proc(channel):
     if type(channel) == list:
-        gen_dir(channel[1])
+        gen_dir(os.path.join(args.out, channel[1]))
         cmd = arguments.replace(os.path.join(args.out, "data"), os.path.join(args.out, channel[1]))+str(channel[0])
         channel = channel[0]
     else:
