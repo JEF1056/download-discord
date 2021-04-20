@@ -68,5 +68,5 @@ def call_proc(channel):
     return (channel, out.decode().strip().replace("\n", " - "), err.decode())
 
 with cf.ThreadPoolExecutor(max_workers = args.workers) as executor:
-    for result in tqdm(executor.map(call_proc, config["channels"]), bar=None, total=len(config["channels"]), desc=f"Exporting channels in {args.config}"):
+    for result in tqdm(executor.map(call_proc, config["channels"]), total=len(config["channels"]), desc=f"Exporting channels in {args.config}"):
         tqdm.write(f"{result[0]} ||| out: {result[1]}\n{'err: '+result[2] if result[2] else ''}")
