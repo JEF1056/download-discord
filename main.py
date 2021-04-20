@@ -53,6 +53,8 @@ def write_out():
     json.dump(existing,open("existing.txt", "w"))
     
 atexit.register(write_out)
+gen_dir(args.out)
+gen_dir(os.path.join(args.out, "data"))
 
 def call_proc(channel):
     if type(channel) == list:
